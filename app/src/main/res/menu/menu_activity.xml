@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_item_settings"
+        android:title="@string/settings"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_item_currency"
+        android:title="@string/menu_item_currency"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_item_notification"
+        android:title="@string/notification_item_menu"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_item_rating"
+        android:title="@string/rateApp"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_item_disabling_adMob"
+        android:title="@string/menu_item_disabling_ads"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_item_info"
+        android:title="@string/menu_item_info"
+        app:showAsAction="never" />
+</menu>

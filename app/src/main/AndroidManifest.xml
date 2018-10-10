@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.gribanskij.miser">
+
+    <uses-permission android:name="com.android.vending.BILLING" />
+
+    <application
+        android:allowBackup="true"
+        android:backupAgent=".utils.TheBackupAgent"
+        android:icon="@mipmap/ic_launcher_miser"
+        android:label="@string/app_name"
+        android:restoreAnyVersion="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <meta-data
+            android:name="com.google.android.backup.api_key"
+            android:value="@string/backup_api_key" />
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/miser_adMob_ID" />
+
+        <activity
+            android:name=".dashboard.DashboardActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme.Launcher">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".add.AddActivity"
+            android:parentActivityName=".dashboard.DashboardActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".dashboard.NameActivity"
+            android:label="@string/settings"
+            android:parentActivityName=".dashboard.DashboardActivity"
+            android:theme="@style/MyThem" />
+        <activity
+            android:name=".dashboard.HelpActivity"
+            android:label="@string/menu_item_info"
+            android:parentActivityName=".dashboard.DashboardActivity"
+            android:theme="@style/MyThem" />
+        <activity android:name=".graph_screen.GraphActivity" />
+        <activity
+            android:name=".edit_screen.EditActivity"
+            android:label="@string/editing"
+            android:theme="@style/AppTheme" />
+
+        <provider
+            android:name=".sql_base.Provider"
+            android:authorities="com.gribanskij.miser"
+            android:exported="false" />
+
+        <receiver
+            android:name=".utils.MyReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.gribanskij.miser.ADD_EXPENSES" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

@@ -1,0 +1,172 @@
+<resources>
+    <string name="app_name">Cкнара</string>
+    <string name="settings">Категорії</string>
+
+    <string-array name="type">
+        <item>Витрати</item>
+        <item>Доходи</item>
+    </string-array>
+
+    <string-array name="currency">
+        <item>RUB</item>
+        <item>USD</item>
+        <item>EUR</item>
+        <item>BYN</item>
+        <item>UAH</item>
+        <item>AZN</item>
+        <item>LTL</item>
+        <item>TMT</item>
+        <item>KGS</item>
+        <item>KZT</item>
+        <item>MNT</item>
+        <item>GEL</item>
+        <item>BGN</item>
+        <item>UZS</item>
+    </string-array>
+    <string-array name="questions">
+        <item>C чого почати?</item>
+        <item>Як перейменувати категорії?</item>
+        <item>Як змінити позначення валюти?</item>
+        <item>Як змінити суму рахунку?</item>
+        <item>Як перевести гроші між рахунками?</item>
+        <item>Як додати транзакцію?</item>
+        <item>Як відредагувати транзакцію?</item>
+        <item>Як видалити транзакцію?</item>
+    </string-array>
+
+    <string-array name="answers">
+       <item>
+            Перш за все перейменуйте категорії рахунків і доходів - витрат в
+            відповідно до ваших уподобань. Потім внесіть значення сум ваших рахунків відповідно до реального
+            станом справ. Виберіть бажану валюту. Далі можна вносити транзакції доходів - витрат.
+        </item>
+        <item>
+            Відкрийте меню вибору опцій на першому екрані «огляд». Виберіть
+            пункт меню «категорії». Далі знайдіть потрібну категорію і натисніть кнопку
+            «Редагування».
+        </item>
+        <item>
+            Відкрийте меню вибору опцій на першому екрані «огляд». Виберіть
+            пункт меню «валюта». Виберіть необхідне позначення валюти і натисніть «OK».
+        </item>
+        <item>
+            Стан рахунків відображається на першому екрані «огляд». Натисніть і
+            утримуйте картку з обраним рахунком. З\'явиться діалогове вікно зміни суми.
+            Внесіть суму і натисніть «ОК».
+        </item>
+        <item>
+            Стан рахунків відображається на першому екрані «огляд». Натисніть і
+            утримуйте картку з обраним рахунком. З\'явиться діалогове вікно зміни суми.
+            Поставте галочку на пункті «переклад» і виберіть з якого рахунку буде списана зазначена сума.
+        </item>
+        <item>
+            Додати транзакцію можна з будь-якого екрану програми, натиснувши
+            кнопку «+». Далі з\'явиться діалогове вікно,
+            в якому можна внести необхідні відомості про транзакції.
+        </item>
+        <item>
+            Відредагувати транзакцію можна на екрані детального відображення відповідної категорії.
+            Проведіть, не відриваючи пальця, по транзакції вправо, запуститися режим редагування.
+        </item>
+        <item>
+            Видалити транзакцію можна на екрані детального відображення відповідної категорії. Проведіть,
+            не відриваючи пальця, по транзакції вліво, запуститися режим видалення.
+        </item>
+    </string-array>
+
+    <string-array name="income_category">
+        <item>Зарплата</item>
+        <item>Аванс</item>
+        <item>Бізнес</item>
+        <item>Інше</item>
+    </string-array>
+
+    <string-array name="cost_category">
+        <item>Їжа</item>
+        <item>Житло</item>
+        <item>Транспорт</item>
+        <item>Спорт</item>
+        <item>Автомобіль</item>
+        <item>Розваги</item>
+        <item>Навчання</item>
+        <item>Товари для дому</item>
+        <item>Медицина</item>
+        <item>Техніка</item>
+        <item>Кредит</item>
+        <item>Мобільний</item>
+        <item>Одяг, імідж</item>
+        <item>Інше</item>
+    </string-array>
+
+    <string-array name="accounts">
+        <item>Готівкові</item>
+        <item>Карта</item>
+        <item>Рахунок</item>
+        <item>Депозит</item>
+    </string-array>
+
+    <string name="title_cost">Витрати</string>
+    <string name="title_incom">Доходи</string>
+
+    <string name="Insert_OK">Транзакція додана</string>
+    <string name="db_error">Помилка бази данихх</string>
+    <string name="no_comments">немає коментарів</string>
+    <string name="del_dialog_title">Видалити транзакцію?</string>
+    <string name="cancel">Відміна</string>
+    <string name="delete_ok">Транзакція видалена</string>
+    <string name="account_hint">Нова сума</string>
+    <string name="transfer_enable">Перенести з рахунку</string>
+    <string name="incom_card">Доходи</string>
+    <string name="cost_card">Витрати</string>
+    <string name="dashboard">Огляд</string>
+    <string name="start_title">з</string>
+    <string name="end_title">по</string>
+    <string name="menu_item_info">Допомога</string>
+    <string name="accounts_grope">Рахунки</string>
+    <string name="edit_name">Нова назва</string>
+    <string name="category_rename_ok">Категорія змінена</string>
+    <string name="menu_item_currency">Валюта</string>
+    <string name="title_dialog_currency">Валюта</string>
+    <string name="currency_changed">Валюта змінена</string>
+    <string name="button_day">День</string>
+    <string name="button_week">Тиждень</string>
+    <string name="button_month">Mісяць</string>
+    <string name="comment">Коментарі</string>
+    <string name="summ">Сума</string>
+    <string name="summ_transfer">Сума переказу</string>
+    <string name="emptyView">Транзакції за обраний період не знайдені</string>
+    <string name="rateApp">Oцінити додаток</string>
+    <string name="market_error">Не вдалося відкрити Play Market. спробуй пізніше</string>
+    <string name="cost_6">Витрати по місяцях</string>
+    <string name="income_6">Доходи по місяцях</string>
+
+    <string name="month_jan">Cіч</string>
+    <string name="month_feb">Лют</string>
+    <string name="month_mar">Бер</string>
+    <string name="month_apr">Квіт</string>
+    <string name="month_may">Трав</string>
+    <string name="month_jun">Чер</string>
+    <string name="month_jul">Лип</string>
+    <string name="month_aug">Сер</string>
+    <string name="month_sep">Вер</string>
+    <string name="month_okt">Жов</string>
+    <string name="month_nov">Лис</string>
+    <string name="month_dec">Груд</string>
+    <string name="menu_item_disabling_ads">Відключити рекламу</string>
+    <string name="info_disable_ads">Реклама відключена</string>
+    <string name="info_error_ads_disabling">Помилка, спробуйте пізніше</string>
+    <string name="radio_button_set">Задати</string>
+    <string name="title_add_card">Tранзакція</string>
+    <string name="creating">Створення</string>
+    <string name="no_data_graph">Немає значень!</string>
+    <string name="main_notification_channel">Cкнара нагадування</string>
+    <string name="addExpenses_notification_title">Cкнара повідомляє</string>
+    <string name="addExpenses_notification_main_text">Час внести витрати</string>
+    <string name="pref_notification_label">Нагадування</string>
+    <string name="notification_item_menu">Нагадування</string>
+    <string name="remove_action">Вилучено!</string>
+    <string name="undo_action">Скасувати?</string>
+    <string name="editing">Редагування</string>
+
+
+</resources>

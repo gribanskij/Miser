@@ -1,0 +1,176 @@
+<resources>
+    <string name="app_name">Скряга</string>
+    <string name="settings">Категории</string>
+
+    <string-array name="type">
+        <item>Расходы</item>
+        <item>Доходы</item>
+    </string-array>
+
+    <string-array name="currency">
+        <item>RUB</item>
+        <item>USD</item>
+        <item>EUR</item>
+        <item>BYN</item>
+        <item>UAH</item>
+        <item>AZN</item>
+        <item>LTL</item>
+        <item>TMT</item>
+        <item>KGS</item>
+        <item>KZT</item>
+        <item>MNT</item>
+        <item>GEL</item>
+        <item>BGN</item>
+        <item>UZS</item>
+    </string-array>
+    <string-array name="questions">
+        <item>C чего начать?</item>
+        <item>Как переименовать категории?</item>
+        <item>Как изменить обозначение валюты?</item>
+        <item>Как изменить сумму счета?</item>
+        <item>Как перевести деньги между счетами?</item>
+        <item>Как добавить транзакцию?</item>
+        <item>Как отредактировать транзакцию?</item>
+        <item>Как удалить транзакцию?</item>
+    </string-array>
+
+    <string-array name="answers">
+       <item>
+            Прежде всего переименуйте категории счетов,доходов,расходов в
+            соответствии с вашими предпочтениями.
+            Затем внесите значения сумм ваших счетов в соответствии с реальным
+            положением дел. Выберите предпочтительную
+            валюту. Далее можно вносить доходы и раходы по мере их появления
+        </item>
+        <item>
+            Откройте меню выбора опций. Выберите пункт меню «Категории».
+            Далее найдите требуемую категорию и нажмите кнопку
+            «редактирование».
+        </item>
+        <item>
+            Откройте меню выбора опций. Выберите пункт меню «Валюта».
+            Выберите необходимое обозначение валюты и нажмите «OK».
+        </item>
+        <item>
+            Состояние счетов отображается на первом экране «Обзор». Нажмите и
+            удерживайте нажатой карточку с выбранным счетом. Появится диалоговое окно изменения суммы.
+            Внесите сумму и нажмите «ОК».
+        </item>
+        <item>
+            Состояние счетов отображается на первом экране «Обзор». Нажмите и
+            удерживайте нажатой карточку с выбранным счетом. Появится диалоговое окно изменения суммы.
+            Поставьте галочку на пункте «перевод» и выберите с какого счета будет списана указанная сумма.
+        </item>
+        <item>
+            Добавить транзакцию можно с любого экрана приложения, нажав
+            кнопку «+». Далее появится диалоговое окно,
+            в котором можно внести необходимые сведения о транзакции.
+        </item>
+        <item>
+            Отредактировать транзакцию можно на экране детального
+            отображения соответствующей категории. Проведите,
+            не отрывая пальца, по транзакции вправо, запуститься режим редактирования.
+        </item>
+        <item>
+            Удалить транзакцию можно на экране детального
+            отображения соответствующей категории. Проведите,
+            не отрывая пальца, по транзакции влево, запуститься режим удаления.
+        </item>
+    </string-array>
+
+    <string-array name="income_category">
+        <item>Зарплата</item>
+        <item>Аванс</item>
+        <item>Бизнес</item>
+        <item>Прочее</item>
+    </string-array>
+
+    <string-array name="cost_category">
+        <item>Еда</item>
+        <item>Жилье</item>
+        <item>Транспорт</item>
+        <item>Спорт</item>
+        <item>Автомобиль</item>
+        <item>Развлечения</item>
+        <item>Обучение</item>
+        <item>Товары для дома</item>
+        <item>Медицина</item>
+        <item>Техника</item>
+        <item>Кредит</item>
+        <item>Связь</item>
+        <item>Одежда, имидж</item>
+        <item>Прочее</item>
+    </string-array>
+
+    <string-array name="accounts">
+        <item>Наличные</item>
+        <item>Карта</item>
+        <item>Счет</item>
+        <item>Депозит</item>
+    </string-array>
+
+    <string name="title_cost">Расходы</string>
+    <string name="title_incom">Доходы</string>
+
+    <string name="Insert_OK">Транзакция добавлена</string>
+    <string name="db_error">Oшибка базы данных</string>
+    <string name="no_comments">нет комментариев</string>
+    <string name="del_dialog_title">Удалить транзакцию?</string>
+    <string name="cancel">Отмена</string>
+    <string name="delete_ok">Транзакция удалена</string>
+    <string name="account_hint">Новая сумма</string>
+    <string name="transfer_enable">Перевод со счета</string>
+    <string name="incom_card">Доходы</string>
+    <string name="cost_card">Расходы</string>
+    <string name="dashboard">Обзор</string>
+    <string name="start_title">с</string>
+    <string name="end_title">по</string>
+    <string name="menu_item_info">Помощь</string>
+    <string name="accounts_grope">Счета</string>
+    <string name="edit_name">Новое название</string>
+    <string name="category_rename_ok">Категория изменена</string>
+    <string name="menu_item_currency">Валюта</string>
+    <string name="title_dialog_currency">Валюта</string>
+    <string name="currency_changed">Валюта изменена</string>
+    <string name="button_day">День</string>
+    <string name="button_week">Неделя</string>
+    <string name="button_month">Месяц</string>
+    <string name="comment">Комментарии</string>
+    <string name="summ">Сумма</string>
+    <string name="summ_transfer">Сумма перевода</string>
+    <string name="emptyView">Транзакции за выбранный период не найдены</string>
+    <string name="rateApp">Оценить приложение</string>
+    <string name="market_error">Не удалось открыть Play Market. Попробуйте позже</string>
+    <string name="cost_6">Расходы по месяцам</string>
+    <string name="income_6">Доходы по месяцам</string>
+
+    <string name="month_jan">Янв</string>
+    <string name="month_feb">Фев</string>
+    <string name="month_mar">Март</string>
+    <string name="month_apr">Апр</string>
+    <string name="month_may">Май</string>
+    <string name="month_jun">Июнь</string>
+    <string name="month_jul">Июль</string>
+    <string name="month_aug">Авг</string>
+    <string name="month_sep">Сент</string>
+    <string name="month_okt">Окт</string>
+    <string name="month_nov">Нояб</string>
+    <string name="month_dec">Дек</string>
+    <string name="menu_item_disabling_ads">Отключить рекламу</string>
+    <string name="info_disable_ads">Реклама отключена</string>
+    <string name="info_error_ads_disabling">Ошибка, попробуйте позже</string>
+    <string name="radio_button_set">Задать</string>
+    <string name="title_add_card">Транзакция</string>
+    <string name="creating">Создание</string>
+    <string name="no_data_graph">Нет значений!</string>
+
+    <string name="main_notification_channel">Скряга напоминание</string>
+    <string name="addExpenses_notification_main_text">Время внести расходы</string>
+    <string name="addExpenses_notification_title">Скряга уведомляет</string>
+    <string name="pref_notification_label">Напоминание</string>
+    <string name="notification_item_menu">Напоминание</string>
+    <string name="remove_action">Удалено!</string>
+    <string name="undo_action">Отменить?</string>
+    <string name="editing">Редактирование</string>
+
+</resources>
