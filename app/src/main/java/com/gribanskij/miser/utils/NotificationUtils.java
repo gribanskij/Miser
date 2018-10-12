@@ -1,6 +1,6 @@
 package com.gribanskij.miser.utils;
 
-import android.app.Notification;
+import android.app.AlarmManager;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -11,10 +11,13 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v4.content.ContextCompat;
 
 import com.gribanskij.miser.R;
 import com.gribanskij.miser.dashboard.DashboardActivity;
+
+import java.util.Calendar;
 
 
 /**
@@ -30,18 +33,18 @@ public class NotificationUtils {
 
 
     public static void clearAllNotifications(Context context) {
-        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
         notificationManager.cancelAll();
     }
 
 
     public static void remindUserAddExpenses(Context context) {
 
-        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel mChannel = new NotificationChannel(MISER_REMINDER_NOTIFICATION_CHANNEL_ID,
-                    context.getString(R.string.main_notification_channel), NotificationManager.IMPORTANCE_HIGH);
+                    context.getString(R.string.main_notification_channel), NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
             notificationManager.createNotificationChannel(mChannel);
         }
 
@@ -52,15 +55,11 @@ public class NotificationUtils {
                 .setLargeIcon(largeIcon(context))
                 .setContentTitle(context.getString(R.string.addExpenses_notification_title))
                 .setContentText(context.getString(R.string.addExpenses_notification_main_text))
-                .setStyle(new NotificationCompat.BigTextStyle().bigText(context.getString
-                        (R.string.addExpenses_notification_main_text)))
-                .setDefaults(Notification.DEFAULT_VIBRATE)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setContentIntent(contentIntent(context))
                 .setAutoCancel(true);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN && Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
-            notificationBuilder.setPriority(NotificationCompat.PRIORITY_HIGH);
-        }
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
         notificationManager.notify(MISER_REMINDER_NOTIFICATION_ID, notificationBuilder.build());
     }
 
@@ -73,5 +72,31 @@ public class NotificationUtils {
     private static Bitmap largeIcon(Context context) {
         Resources resource = context.getResources();
         return BitmapFactory.decodeResource(resource, R.mipmap.ic_launcher_miser);
+    }
+
+
+    public static void setAlarm(Context context) {
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(System.currentTimeMillis());
+        calendar.set(Calendar.HOUR_OF_DAY, 21);
+        calendar.set(Calendar.MINUTE, 0);
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        alarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(),
+                AlarmManager.INTERVAL_DAY, getPendingIntent(context));
+    }
+
+
+    private static PendingIntent getPendingIntent(Context context) {
+        Intent intent = new Intent();
+        intent.setAction(MyReceiver.ACTION_ADD_EXPENSES);
+        intent.setClass(context, MyReceiver.class);
+        return PendingIntent.getBroadcast(context,
+                179, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+    }
+
+    public static void disableAlarm(Context context) {
+        AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        alarmManager.cancel(getPendingIntent(context));
     }
 }

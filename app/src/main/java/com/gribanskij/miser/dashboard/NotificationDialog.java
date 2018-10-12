@@ -13,8 +13,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import com.gribanskij.miser.R;
+import com.gribanskij.miser.utils.NotificationUtils;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -36,7 +38,7 @@ public class NotificationDialog extends DialogFragment {
 
         Switch mSwitch = view.findViewById(R.id.notification_switch_id);
         final SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        Boolean isEnable = sharedPreferences.getBoolean(getString(R.string.pref_notification_key), true);
+        Boolean isEnable = sharedPreferences.getBoolean(getString(R.string.pref_notification_key), false);
         mSwitch.setChecked(isEnable);
 
         mSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -45,6 +47,14 @@ public class NotificationDialog extends DialogFragment {
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putBoolean(getString(R.string.pref_notification_key), b);
                 editor.apply();
+                if (b) {
+                    NotificationUtils.setAlarm(getActivity());
+                    Toast.makeText(getActivity(), R.string.notification_is_on, Toast.LENGTH_SHORT).show();
+                } else {
+
+                    NotificationUtils.disableAlarm(getActivity());
+                    Toast.makeText(getActivity(), R.string.notification_is_off, Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -52,6 +62,5 @@ public class NotificationDialog extends DialogFragment {
                 .setPositiveButton(android.R.string.ok, null)
                 .setNegativeButton(android.R.string.cancel, null).create();
     }
-
 
 }

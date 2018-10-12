@@ -167,6 +167,8 @@
     <string name="remove_action">Вилучено!</string>
     <string name="undo_action">Скасувати?</string>
     <string name="editing">Редагування</string>
+    <string name="notification_is_on">Нагадування ВКЛ</string>
+    <string name="notification_is_off">Нагадування ВИМК</string>
 
 
 </resources>

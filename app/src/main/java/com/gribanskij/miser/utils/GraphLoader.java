@@ -5,9 +5,11 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.support.v4.content.AsyncTaskLoader;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.os.CancellationSignal;
 import android.support.v4.os.OperationCanceledException;
 
+import com.gribanskij.miser.R;
 import com.gribanskij.miser.sql_base.MiserContract;
 import com.jjoe64.graphview.series.BarGraphSeries;
 import com.jjoe64.graphview.series.DataPoint;
@@ -24,7 +26,6 @@ import java.util.List;
 public class GraphLoader extends AsyncTaskLoader<BarGraphSeries<DataPoint>> {
 
 
-    private final int MONTHS_IN_YEAR = 12;
     private final ForceLoadContentObserver mObserver;
     private Context context;
     private int type;
@@ -110,9 +111,11 @@ public class GraphLoader extends AsyncTaskLoader<BarGraphSeries<DataPoint>> {
         }
 
         try {
-            List intervals = getMonthIntervals();
+            List<Month> intervals = getMonthIntervals();
             DataPoint[] series = getDataPointSet(type, intervals);
             barGraphSeries = new BarGraphSeries<>(series);
+            barGraphSeries.setSpacing(5);
+            barGraphSeries.setColor(ContextCompat.getColor(getContext(), R.color.colorSeries));
             return barGraphSeries;
 
         } finally {
@@ -130,9 +133,9 @@ public class GraphLoader extends AsyncTaskLoader<BarGraphSeries<DataPoint>> {
         calendar.set(Calendar.MINUTE, 0);
         calendar.set(Calendar.SECOND, 0);
         calendar.set(Calendar.MILLISECOND, 0);
-        calendar.add(Calendar.YEAR, -1);
+        calendar.add(Calendar.MONTH, -6);
 
-        for (int a = 0; a < MONTHS_IN_YEAR + 1; a++) {
+        for (int a = 0; a <= 6; a++) {
             long start = calendar.getTimeInMillis();
             calendar.add(Calendar.MONTH, 1);
             long end = calendar.getTimeInMillis();
@@ -144,11 +147,6 @@ public class GraphLoader extends AsyncTaskLoader<BarGraphSeries<DataPoint>> {
 
     private DataPoint[] getDataPointSet(int type, List<Month> date_set) {
 
-        DataPoint[] dataPoints = new DataPoint[MONTHS_IN_YEAR + 1];
-        for (int i = 0; i < MONTHS_IN_YEAR + 1; i++) {
-            dataPoints[i] = new DataPoint(0, 0);
-        }
-
         String[] projection = new String[]{"SUM" + "(" + MiserContract.DataTable.Cols.AMOUNT + ")"};
         String selection = MiserContract.DataTable.Cols.DATE + " >=  ? AND " +
                 MiserContract.DataTable.Cols.DATE + " < ? AND " +
@@ -158,16 +156,17 @@ public class GraphLoader extends AsyncTaskLoader<BarGraphSeries<DataPoint>> {
         String[] arg = new String[]{
                 Long.toString(0),
                 Long.toString(1),
-                Integer.toString(type)};
+                Integer.toString(type)
+        };
 
         mCursor = resolver.query(uri, projection, selection, arg, null);
         if (mCursor != null) mCursor.registerContentObserver(mObserver);
 
-
+        DataPoint[] dataPoints = new DataPoint[date_set.size()];
         int count = 0;
-        for (Month m : date_set) {
+        int sum = 0;
 
-            int sum = 0;
+        for (Month m : date_set) {
             long start_date = m.getStart();
             long final_date = m.getFinal();
 
@@ -181,9 +180,11 @@ public class GraphLoader extends AsyncTaskLoader<BarGraphSeries<DataPoint>> {
                 sum = cursor.getInt(0);
                 cursor.close();
             }
+
             DataPoint point = new DataPoint(count, sum);
             dataPoints[count] = point;
             count++;
+            sum = 0;
         }
         return dataPoints;
     }

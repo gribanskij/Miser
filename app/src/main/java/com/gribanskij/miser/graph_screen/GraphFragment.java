@@ -74,15 +74,14 @@ public class GraphFragment extends Fragment implements LoaderManager.LoaderCallb
         graphView = v.findViewById(R.id.graphView_screen);
         DefaultLabelFormatter formatter = new LabelFormatter(getActivity());
         graphView.getGridLabelRenderer().setLabelFormatter(formatter);
-        graphView.getViewport().setMinX(6);
-        graphView.getViewport().setMaxX(12);
         graphView.getViewport().setXAxisBoundsManual(true);
+        graphView.getViewport().setMaxX(6);
         graphView.getGridLabelRenderer().setHighlightZeroLines(false);
         graphView.getGridLabelRenderer().setHorizontalLabelsColor(ContextCompat.getColor(getContext(), R.color.colorGray));
         graphView.getGridLabelRenderer().setVerticalLabelsColor(ContextCompat.getColor(getContext(), R.color.colorGray));
+        graphView.getLegendRenderer().setVisible(true);
+        graphView.getLegendRenderer().setAlign(LegendRenderer.LegendAlign.TOP);
 
-
-        //graphView.getViewport().setScrollable(true);
         return v;
     }
 
@@ -113,20 +112,13 @@ public class GraphFragment extends Fragment implements LoaderManager.LoaderCallb
         switch (id) {
             case GRAPH_LOADER: {
                 graphView.removeAllSeries();
-                data.setSpacing(5);
-                data.setAnimated(true);
-                data.setColor(ContextCompat.getColor(getContext(), R.color.colorSeries));
                 data.setOnDataPointTapListener(new DataSeriesListener());
-                //data.setDrawValuesOnTop(true);
-                //data.setValuesOnTopColor(ContextCompat.getColor(getContext(), R.color.colorAccent));
                 if (mType == MiserContract.TYPE_COST) {
                     data.setTitle(getString(R.string.cost_6));
                 } else {
                     data.setTitle(getString(R.string.income_6));
                 }
                 graphView.addSeries(data);
-                graphView.getLegendRenderer().setVisible(true);
-                graphView.getLegendRenderer().setAlign(LegendRenderer.LegendAlign.TOP);
                 break;
             }
         }

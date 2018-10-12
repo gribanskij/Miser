@@ -169,7 +169,6 @@ public class DashboardFragment extends Fragment implements DatePickerDialog.OnDa
             FrameLayout layout = v.findViewById(R.id.admob_container);
             AdView adView = new AdView(getActivity());
             adView.setAdSize(AdSize.SMART_BANNER);
-            //adView.setAdUnitId(getString(R.string.test_banner_id));
             adView.setAdUnitId(getString(R.string.dashboard_banner_ID));
             layout.addView(adView);
             AdRequest adRequest = new AdRequest.Builder().build();
@@ -191,13 +190,13 @@ public class DashboardFragment extends Fragment implements DatePickerDialog.OnDa
         cost_graph.getGridLabelRenderer().setHighlightZeroLines(false);
         income_graph.getGridLabelRenderer().setHighlightZeroLines(false);
 
-        income_graph.getViewport().setMinX(6);
-        income_graph.getViewport().setMaxX(12);
-        income_graph.getViewport().setXAxisBoundsManual(true);
 
-        cost_graph.getViewport().setMinX(6);
-        cost_graph.getViewport().setMaxX(12);
+        income_graph.getViewport().setXAxisBoundsManual(true);
+        income_graph.getViewport().setMaxX(6);
+
         cost_graph.getViewport().setXAxisBoundsManual(true);
+        cost_graph.getViewport().setMaxX(6);
+
 
         //CardView graphCost = v.findViewById(R.id.cardView3);
         //CardView graphIncome = v.findViewById(R.id.cardGraphIncome);
@@ -707,18 +706,12 @@ public class DashboardFragment extends Fragment implements DatePickerDialog.OnDa
 
                 case BARGRAPH_DATA_SET_COST: {
                     cost_graph.removeAllSeries();
-                    series.setSpacing(5);
-                    series.setAnimated(true);
-                    series.setColor(ContextCompat.getColor(getContext(), R.color.colorSeries));
                     cost_graph.addSeries(series);
                     break;
                 }
 
                 case BARGRAPH_DATA_SET_INCOME: {
                     income_graph.removeAllSeries();
-                    series.setSpacing(5);
-                    series.setAnimated(true);
-                    series.setColor(ContextCompat.getColor(getContext(), R.color.colorSeries));
                     income_graph.addSeries(series);
                     break;
                 }

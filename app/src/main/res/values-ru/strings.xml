@@ -172,5 +172,8 @@
     <string name="remove_action">Удалено!</string>
     <string name="undo_action">Отменить?</string>
     <string name="editing">Редактирование</string>
+    <string name="notification_is_on">Напоминание ВКЛ</string>
+    <string name="notification_is_off">Напоминание ВЫКЛ</string>
+
 
 </resources>

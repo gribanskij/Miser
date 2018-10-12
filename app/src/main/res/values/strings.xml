@@ -151,7 +151,6 @@
     <string name="info_error_ads_disabling">Error, try again later </string>
 
     <!-- Key name for Notification -->
-    <string name="pref_isNotification_key" translatable="false">notification</string>
     <string name="pref_notification_key" translatable="false">notify_key</string>
     <string name="pref_notification_label" translatable="true">Notification</string>
 
@@ -182,6 +181,8 @@
     <string name="remove_action">Removed!</string>
     <string name="undo_action">Undo?</string>
     <string name="editing">Editing</string>
+    <string name="notification_is_on">Notification is ON</string>
+    <string name="notification_is_off">Notification is OFF</string>
 
 
 </resources>
